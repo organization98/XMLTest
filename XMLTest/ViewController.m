@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://news.yandex.ua/music.rss"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://lavina.dp.ua/feed/"]];
     NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:self];
     
     if (connection) {
@@ -128,6 +128,7 @@
         cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:[CustomCell cellID]];
     }
     [cell configForItem:[self.newsArray objectAtIndex:indexPath.row]];
+    [[UIApplication sharedApplication]setNetworkActivityIndicatorVisible:NO];
     return cell;
 }
 
